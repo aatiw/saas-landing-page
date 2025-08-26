@@ -19,7 +19,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="absolute top-0 w-[90vw] h-auto bg-transparent border-3 border-gray-500 rounded-4xl mt-3 p-4">
+    <div className="fixed top-0 w-[90vw] h-auto bg-neutral-950/80 border-3 border-gray-500 rounded-4xl mt-3 p-4 z-50">
       <div className="flex items-start lg:items-center justify-between h-full w-full">
         <div className="flex flex-row items-center justify-between cursor-pointer">
           <Image src={logo} alt="logo" height={130} width={140} />
