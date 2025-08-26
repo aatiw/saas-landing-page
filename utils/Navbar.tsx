@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import logo from "../assets/images/logo.svg";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -68,8 +69,13 @@ export default function Navbar() {
             </svg>
           </button>
 
-          {isOpen && (
-            <div className="lg:hidden mt-4 flex flex-col items-end space-y-4">
+          <AnimatePresence>
+            {isOpen && (
+            <motion.div 
+            initial={{height:0}}
+            animate={{height:"auto"}}
+            exit={{height:0}}
+            className="lg:hidden mt-4 flex flex-col items-center justify-center space-y-4 overflow-hidden">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -85,8 +91,12 @@ export default function Navbar() {
               <button className="text-gray-900 border border-white rounded-2xl bg-[#A6E43C] px-4 py-1 hover:bg-transparent hover:text-white">
                 Sign Up
               </button>
-            </div>
+            </motion.div>
           )}
+          </AnimatePresence>
+
+
+          
         </div>
 
       </div>
